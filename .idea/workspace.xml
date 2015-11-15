@@ -4,7 +4,11 @@
     <bookmark url="file://$PROJECT_DIR$/swt-ui/src/main/java/ch/mydrive/MainAppWindow.java" description="public Shell open(Display display) {" line="24" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="65b1cc62-b43a-424d-a732-ae46b0f2356f" name="Default" comment="" />
+    <list default="true" id="65b1cc62-b43a-424d-a732-ae46b0f2356f" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/swt-ui/build.gradle" afterPath="$PROJECT_DIR$/swt-ui/build.gradle" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/swt-ui/dist-assets/mydrive.jnlp" afterPath="$PROJECT_DIR$/swt-ui/dist-assets/mydrive.jnlp" />
+    </list>
     <ignored path="$PROJECT_DIR$/core/.gradle/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
@@ -41,21 +45,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="false">
+      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/swt-ui/build.gradle">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
+            <state vertical-scroll-proportion="0.15789473">
               <caret line="24" column="38" selection-start-line="24" selection-start-column="38" selection-end-line="24" selection-end-column="38" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mydrive.jnlp" pinned="false" current-in-tab="true">
+      <file leaf-file-name="mydrive.jnlp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/swt-ui/dist-assets/mydrive.jnlp">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.21935484">
-              <caret line="8" column="48" selection-start-line="8" selection-start-column="48" selection-end-line="8" selection-end-column="48" />
+            <state vertical-scroll-proportion="-11.115385">
+              <caret line="17" column="53" selection-start-line="17" selection-start-column="53" selection-end-line="17" selection-end-column="53" />
               <folding />
             </state>
           </provider>
@@ -288,9 +292,17 @@
                 <option name="name" value="installDist" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="installJnlp" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
                 <option name="description" value="Placeholder task for tasks relating to creating .exe applications with launch4j" />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
                 <option name="name" value="launch4j" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="moveJnlpDescriptor" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Runs this project as a JVM application" />
@@ -299,7 +311,7 @@
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="signJars" />
+                <option name="name" value="signForJnlp" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Creates OS specific scripts to run the project as a JVM application." />
@@ -559,6 +571,10 @@
                 <option name="name" value="installDist" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/swt-ui" />
+                <option name="name" value="installJnlp" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
                 <option name="description" value="Assembles a jar archive containing the main classes." />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/swt-ui" />
                 <option name="name" value="jar" />
@@ -577,6 +593,10 @@
                 <option name="description" value="Displays the configuration model of project ':swt-ui'. [incubating]" />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/swt-ui" />
                 <option name="name" value="model" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/swt-ui" />
+                <option name="name" value="moveJnlpDescriptor" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Processes JVM resources 'main:resources'." />
@@ -605,7 +625,7 @@
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/swt-ui" />
-                <option name="name" value="signJars" />
+                <option name="name" value="signForJnlp" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Creates OS specific scripts to run the project as a JVM application." />
@@ -639,7 +659,7 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="$PROJECT_DIR$" value="5790201686980" />
+        <entry key="$PROJECT_DIR$" value="5790204764076" />
       </map>
     </option>
     <option name="projectBuildClasspath">
@@ -822,8 +842,8 @@
         <option value="$PROJECT_DIR$/build.gradle" />
         <option value="$PROJECT_DIR$/core/build.gradle" />
         <option value="$PROJECT_DIR$/swt-ui/index.html" />
-        <option value="$PROJECT_DIR$/swt-ui/build.gradle" />
         <option value="$PROJECT_DIR$/swt-ui/assets/mydrive.jnlp" />
+        <option value="$PROJECT_DIR$/swt-ui/build.gradle" />
         <option value="$PROJECT_DIR$/swt-ui/dist-assets/mydrive.jnlp" />
       </list>
     </option>
@@ -1427,7 +1447,7 @@
       <option name="number" value="Default" />
       <updated>1447521983342</updated>
       <workItem from="1447521991865" duration="27677000" />
-      <workItem from="1447611304350" duration="2193000" />
+      <workItem from="1447611304350" duration="4036000" />
     </task>
     <task id="LOCAL-00001" summary="Signing fix">
       <created>1447612511866</created>
@@ -1447,11 +1467,17 @@
       <option name="project" value="LOCAL" />
       <updated>1447613491201</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Signing fix">
+      <created>1447613509540</created>
+      <option name="number" value="00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1447613509540</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="29870000" />
+    <option name="totallyTimeSpent" value="31713000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1320" height="784" extended-state="6" />
@@ -1609,7 +1635,7 @@
         <state vertical-scroll-proportion="46.724136">
           <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1640,18 +1666,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/swt-ui/build.gradle">
+    <entry file="file://$PROJECT_DIR$/swt-ui/dist-assets/mydrive.jnlp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="24" column="38" selection-start-line="24" selection-start-column="38" selection-end-line="24" selection-end-column="38" />
+        <state vertical-scroll-proportion="-11.115385">
+          <caret line="17" column="53" selection-start-line="17" selection-start-column="53" selection-end-line="17" selection-end-column="53" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/swt-ui/dist-assets/mydrive.jnlp">
+    <entry file="file://$PROJECT_DIR$/swt-ui/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.21935484">
-          <caret line="8" column="48" selection-start-line="8" selection-start-column="48" selection-end-line="8" selection-end-column="48" />
+        <state vertical-scroll-proportion="0.15789473">
+          <caret line="24" column="38" selection-start-line="24" selection-start-column="38" selection-end-line="24" selection-end-column="38" />
           <folding />
         </state>
       </provider>
