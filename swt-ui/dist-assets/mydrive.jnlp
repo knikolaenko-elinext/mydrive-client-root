@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="7.0+" codebase="http://mydrive.net:8080/" href="dist-assets/mydrive.jnlp">
+    <information>
+        <title>MyDrive</title>
+        <vendor>MyDrive</vendor>
+        <homepage href="docs/help.html"/>
+        <icon href="assets/app-logo.ico"/>
+        <offline-allowed/>
+        <shortcut online="false" install="true">
+            <desktop/>
+            <menu submenu="MyDrive WebStart"/>
+        </shortcut>
+    </information>
+    <security>
+        <all-permissions/>
+    </security>
+    <resources>
+        <j2se version="1.7+" java-vm-args="-esa -Xnoclassgc"/>
+        <jar href="build/install/swt-ui/lib/swt-ui-signed.jar" main="true"/>
+        <jar href="build/install/swt-ui/lib/core-signed.jar"/>
+        <jar href="build/install/swt-ui/lib/log4j-1.2.17-signed.jar"/>
+        <jar href="build/install/swt-ui/lib/org.eclipse.swt.win32.win32.x86_64-4.3-signed.jar"/>
+    </resources>
+    <application-desc
+            name="MyDrive"
+            main-class="ch.mydrive.Main"/>
+</jnlp> 
