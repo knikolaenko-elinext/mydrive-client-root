@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.eclipse.swt:org.eclipse.swt.gtk.linux.x86_64:4.3">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.eclipse.swt/org.eclipse.swt.gtk.linux.x86_64/4.3/2e9dff738c66efa2a31b048ac608e454715cf3eb/org.eclipse.swt.gtk.linux.x86_64-4.3.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.eclipse.swt/org.eclipse.swt.gtk.linux.x86_64/4.3/ee4097245c82cfef108a6fa8cb823eb14deede3a/org.eclipse.swt.gtk.linux.x86_64-4.3-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

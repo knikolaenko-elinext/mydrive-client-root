@@ -6,10 +6,7 @@ import org.eclipse.swt.dnd.*;
 import org.eclipse.swt.layout.FormAttachment;
 import org.eclipse.swt.layout.FormData;
 import org.eclipse.swt.layout.FormLayout;
-import org.eclipse.swt.widgets.Display;
-import org.eclipse.swt.widgets.Group;
-import org.eclipse.swt.widgets.Label;
-import org.eclipse.swt.widgets.Shell;
+import org.eclipse.swt.widgets.*;
 
 /**
  * Created by kirill on 14.11.2015.
@@ -45,10 +42,10 @@ public class MainAppWindow {
         dndGroup = new Group(shell, SWT.NONE);
         {
             FormData layoutData = new FormData();
-            layoutData.left = new FormAttachment(10, 0);
-            layoutData.right = new FormAttachment(90, 0);
-            layoutData.top = new FormAttachment(10, 0);
-            layoutData.bottom = new FormAttachment(80, 0);
+            layoutData.left = new FormAttachment(10);
+            layoutData.right = new FormAttachment(90);
+            layoutData.top = new FormAttachment(10);
+            layoutData.bottom = new FormAttachment(80);
             dndGroup.setLayoutData(layoutData);
         }
 
@@ -62,10 +59,10 @@ public class MainAppWindow {
         cloud.setAlignment(SWT.CENTER);
         {
             FormData layoutData = new FormData();
-            layoutData.left = new FormAttachment(5, 0);
-            layoutData.right = new FormAttachment(95, 0);
-            layoutData.top = new FormAttachment(0, 0);
-            layoutData.bottom = new FormAttachment(60, 0);
+            layoutData.left = new FormAttachment(5);
+            layoutData.right = new FormAttachment(95);
+            layoutData.top = new FormAttachment(0);
+            layoutData.bottom = new FormAttachment(60);
             cloud.setLayoutData(layoutData);
         }
 
@@ -74,13 +71,48 @@ public class MainAppWindow {
         hint.setAlignment(SWT.CENTER);
         {
             FormData layoutData = new FormData();
-            layoutData.left = new FormAttachment(5, 0);
-            layoutData.right = new FormAttachment(95, 0);
-            layoutData.top = new FormAttachment(60, 0);
-            layoutData.bottom = new FormAttachment(75, 0);
+            layoutData.left = new FormAttachment(5);
+            layoutData.right = new FormAttachment(95);
+            layoutData.top = new FormAttachment(60);
+            layoutData.bottom = new FormAttachment(75);
             hint.setLayoutData(layoutData);
         }
         setupDragAndDrop();
+
+        Label status = new Label(shell, SWT.BORDER);
+        {
+            FormData layoutData = new FormData();
+            layoutData.left = new FormAttachment(0);
+            layoutData.right = new FormAttachment(100);
+            layoutData.bottom = new FormAttachment(100);
+            status.setLayoutData(layoutData);
+        }
+        status.setText(UiStrings.getResourceString("main.status.ready"));
+
+        createMenubar();
+    }
+
+    private void createMenubar() {
+        Menu menuBar = new Menu(shell, SWT.BAR);
+        shell.setMenuBar(menuBar);
+
+        MenuItem cascadeFileMenu = new MenuItem(menuBar, SWT.CASCADE);
+        cascadeFileMenu.setText(UiStrings.getResourceString("main.menu.file"));
+
+        Menu fileMenu = new Menu(shell, SWT.DROP_DOWN);
+        cascadeFileMenu.setMenu(fileMenu);
+
+        MenuItem exitItem = new MenuItem(fileMenu, SWT.PUSH);
+        exitItem.setText(UiStrings.getResourceString("main.menu.file.exit"));
+
+        MenuItem cascadeHelpMenu = new MenuItem(menuBar, SWT.CASCADE);
+        cascadeHelpMenu.setText(UiStrings.getResourceString("main.menu.help"));
+
+        Menu helpMenu = new Menu(shell, SWT.DROP_DOWN);
+        cascadeHelpMenu.setMenu(helpMenu);
+
+        MenuItem aboutItem = new MenuItem(helpMenu, SWT.PUSH);
+        aboutItem.setText(UiStrings.getResourceString("main.menu.help.about"));
     }
 
     private void setupDragAndDrop() {
