@@ -70,6 +70,22 @@ public class MainAppWindow {
                 restoreFromTray();
             }
         });
+
+        final Menu trayMenu = new Menu(shell, SWT.POP_UP);
+        MenuItem exitMenu = new MenuItem(trayMenu, SWT.PUSH);
+        exitMenu.setText(UiStrings.getResourceString("main.tray.menu.exit"));
+        exitMenu.addSelectionListener(new SelectionAdapter() {
+            @Override
+            public void widgetSelected(SelectionEvent e) {
+                close();
+            }
+        });
+
+        trayItem.addListener(SWT.MenuDetect, new Listener() {
+            public void handleEvent(Event event) {
+                trayMenu.setVisible(true);
+            }
+        });
     }
 
     private void createMenubar() {
@@ -84,6 +100,12 @@ public class MainAppWindow {
 
         MenuItem exitItem = new MenuItem(fileMenu, SWT.PUSH);
         exitItem.setText(UiStrings.getResourceString("main.menu.file.exit"));
+        exitItem.addSelectionListener(new SelectionAdapter() {
+            @Override
+            public void widgetSelected(SelectionEvent e) {
+                close();
+            }
+        });
 
         MenuItem cascadeHelpMenu = new MenuItem(menuBar, SWT.CASCADE);
         cascadeHelpMenu.setText(UiStrings.getResourceString("main.menu.help"));
@@ -93,6 +115,13 @@ public class MainAppWindow {
 
         MenuItem aboutItem = new MenuItem(helpMenu, SWT.PUSH);
         aboutItem.setText(UiStrings.getResourceString("main.menu.help.about"));
+        aboutItem.addSelectionListener(new SelectionAdapter() {
+            @Override
+            public void widgetSelected(SelectionEvent e) {
+                AboutWindow aboutWindow = new AboutWindow();
+                aboutWindow.open(shell);
+            }
+        });
     }
 
 
@@ -181,6 +210,6 @@ public class MainAppWindow {
     }
 
     public void close() {
-
+        shell.close();
     }
 }
