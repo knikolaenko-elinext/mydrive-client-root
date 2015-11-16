@@ -3,6 +3,10 @@ package ch.mydrive;
 import org.apache.log4j.Logger;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.dnd.*;
+import org.eclipse.swt.events.SelectionAdapter;
+import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.events.ShellAdapter;
+import org.eclipse.swt.events.ShellEvent;
 import org.eclipse.swt.layout.FormAttachment;
 import org.eclipse.swt.layout.FormData;
 import org.eclipse.swt.layout.FormLayout;
@@ -18,6 +22,7 @@ public class MainAppWindow {
     private Display display;
     private Shell shell;
     private Group dndGroup;
+    private TrayItem trayItem;
 
     public Shell open(Display display) {
         this.display = display;
@@ -29,16 +34,69 @@ public class MainAppWindow {
         shell.setSize(450, 350);
         shell.pack();
         shell.open();
+        shell.addShellListener(new ShellAdapter() {
+            @Override
+            public void shellIconified(ShellEvent e) {
+                minimizeToTray();
+            }
+        });
         LOG.trace("MainAppWindow Shell Opened");
         return shell;
     }
+
 
     private void createShellContents() {
         {
             FormLayout layout = new FormLayout();
             shell.setLayout(layout);
         }
+        createMenubar();
+        createDragAndDropArea();
+        setupDragAndDrop();
+        createStatusBar();
+        createTrayIcon();
+    }
 
+    private void createTrayIcon() {
+        Tray tray = display.getSystemTray();
+        if (tray == null) {
+            return;
+        }
+        trayItem = new TrayItem(tray, SWT.NONE);
+        trayItem.setImage(UiImages.INSTANCE.get(UiImages.ICON));
+        trayItem.addSelectionListener(new SelectionAdapter() {
+            @Override
+            public void widgetSelected(SelectionEvent e) {
+                restoreFromTray();
+            }
+        });
+    }
+
+    private void createMenubar() {
+        Menu menuBar = new Menu(shell, SWT.BAR);
+        shell.setMenuBar(menuBar);
+
+        MenuItem cascadeFileMenu = new MenuItem(menuBar, SWT.CASCADE);
+        cascadeFileMenu.setText(UiStrings.getResourceString("main.menu.file"));
+
+        Menu fileMenu = new Menu(shell, SWT.DROP_DOWN);
+        cascadeFileMenu.setMenu(fileMenu);
+
+        MenuItem exitItem = new MenuItem(fileMenu, SWT.PUSH);
+        exitItem.setText(UiStrings.getResourceString("main.menu.file.exit"));
+
+        MenuItem cascadeHelpMenu = new MenuItem(menuBar, SWT.CASCADE);
+        cascadeHelpMenu.setText(UiStrings.getResourceString("main.menu.help"));
+
+        Menu helpMenu = new Menu(shell, SWT.DROP_DOWN);
+        cascadeHelpMenu.setMenu(helpMenu);
+
+        MenuItem aboutItem = new MenuItem(helpMenu, SWT.PUSH);
+        aboutItem.setText(UiStrings.getResourceString("main.menu.help.about"));
+    }
+
+
+    private void createDragAndDropArea() {
         dndGroup = new Group(shell, SWT.NONE);
         {
             FormData layoutData = new FormData();
@@ -73,12 +131,34 @@ public class MainAppWindow {
             FormData layoutData = new FormData();
             layoutData.left = new FormAttachment(5);
             layoutData.right = new FormAttachment(95);
-            layoutData.top = new FormAttachment(60);
-            layoutData.bottom = new FormAttachment(75);
+            layoutData.bottom = new FormAttachment(70);
             hint.setLayoutData(layoutData);
         }
-        setupDragAndDrop();
 
+        Button selectFilesBtn = new Button(dndGroup, SWT.PUSH);
+        selectFilesBtn.setText(UiStrings.getResourceString("main.dnd.btn"));
+        {
+            FormData layoutData = new FormData();
+            layoutData.left = new FormAttachment(25);
+            layoutData.right = new FormAttachment(75);
+            layoutData.bottom = new FormAttachment(90);
+            selectFilesBtn.setLayoutData(layoutData);
+        }
+    }
+
+    private void setupDragAndDrop() {
+        DropTarget dropTarget = new DropTarget(dndGroup, DND.DROP_MOVE);
+        dropTarget.setTransfer(new FileTransfer[]{FileTransfer.getInstance()});
+        dropTarget.addDropListener(new DropTargetAdapter(){
+            @Override
+            public void drop(DropTargetEvent event) {
+                LOG.info(">> Drop");
+                LOG.info(event.toString());
+            }
+        });
+    }
+
+    private void createStatusBar() {
         Label status = new Label(shell, SWT.BORDER);
         {
             FormData layoutData = new FormData();
@@ -88,69 +168,16 @@ public class MainAppWindow {
             status.setLayoutData(layoutData);
         }
         status.setText(UiStrings.getResourceString("main.status.ready"));
-
-        createMenubar();
     }
 
-    private void createMenubar() {
-        Menu menuBar = new Menu(shell, SWT.BAR);
-        shell.setMenuBar(menuBar);
-
-        MenuItem cascadeFileMenu = new MenuItem(menuBar, SWT.CASCADE);
-        cascadeFileMenu.setText(UiStrings.getResourceString("main.menu.file"));
-
-        Menu fileMenu = new Menu(shell, SWT.DROP_DOWN);
-        cascadeFileMenu.setMenu(fileMenu);
-
-        MenuItem exitItem = new MenuItem(fileMenu, SWT.PUSH);
-        exitItem.setText(UiStrings.getResourceString("main.menu.file.exit"));
-
-        MenuItem cascadeHelpMenu = new MenuItem(menuBar, SWT.CASCADE);
-        cascadeHelpMenu.setText(UiStrings.getResourceString("main.menu.help"));
-
-        Menu helpMenu = new Menu(shell, SWT.DROP_DOWN);
-        cascadeHelpMenu.setMenu(helpMenu);
-
-        MenuItem aboutItem = new MenuItem(helpMenu, SWT.PUSH);
-        aboutItem.setText(UiStrings.getResourceString("main.menu.help.about"));
+    private void minimizeToTray() {
+        shell.setVisible(false);
     }
 
-    private void setupDragAndDrop() {
-        DropTarget dropTarget = new DropTarget(dndGroup, DND.DROP_MOVE);
-        dropTarget.setTransfer(new FileTransfer[]{FileTransfer.getInstance()});
-        dropTarget.addDropListener(new DropTargetListener() {
-
-            @Override
-            public void dragEnter(DropTargetEvent event) {
-
-            }
-
-            @Override
-            public void dragLeave(DropTargetEvent event) {
-
-            }
-
-            @Override
-            public void dragOperationChanged(DropTargetEvent event) {
-
-            }
-
-            @Override
-            public void dragOver(DropTargetEvent event) {
-
-            }
-
-            @Override
-            public void drop(DropTargetEvent event) {
-                LOG.info(">> Drop");
-                LOG.info(event.toString());
-            }
-
-            @Override
-            public void dropAccept(DropTargetEvent event) {
-
-            }
-        });
+    private void restoreFromTray() {
+        shell.setVisible(true);
+        shell.setActive();
+        shell.setMinimized(false);
     }
 
     public void close() {
