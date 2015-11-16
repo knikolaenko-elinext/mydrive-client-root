@@ -44,90 +44,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="mydrive.jnlp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/swt-ui/assets/mydrive.jnlp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.0">
-              <caret line="8" column="22" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="build.gradle" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/swt-ui/build.gradle">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6106195">
-              <caret line="23" column="36" selection-start-line="23" selection-start-column="36" selection-end-line="23" selection-end-column="36" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MainAppWindow.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/swt-ui/src/main/java/ch/mydrive/MainAppWindow.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="26" column="40" selection-start-line="26" selection-start-column="40" selection-end-line="26" selection-end-column="40" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SelectionAdapter.java" pinned="false" current-in-tab="false">
-        <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.eclipse.swt/org.eclipse.swt.gtk.linux.x86_64/4.3/ee4097245c82cfef108a6fa8cb823eb14deede3a/org.eclipse.swt.gtk.linux.x86_64-4.3-sources.jar!/org/eclipse/swt/events/SelectionAdapter.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="26" column="56" selection-start-line="26" selection-start-column="56" selection-end-line="26" selection-end-column="56" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SelectionListener.java" pinned="false" current-in-tab="false">
-        <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.eclipse.swt/org.eclipse.swt.gtk.linux.x86_64/4.3/ee4097245c82cfef108a6fa8cb823eb14deede3a/org.eclipse.swt.gtk.linux.x86_64-4.3-sources.jar!/org/eclipse/swt/events/SelectionListener.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="31" column="17" selection-start-line="31" selection-start-column="17" selection-end-line="31" selection-end-column="17" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="cloud.gif" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/swt-ui/src/main/resources/cloud.gif">
-          <provider selected="true" editor-type-id="images">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ShellAdapter.java" pinned="false" current-in-tab="false">
-        <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.eclipse.swt/org.eclipse.swt.gtk.linux.x86_64/4.3/ee4097245c82cfef108a6fa8cb823eb14deede3a/org.eclipse.swt.gtk.linux.x86_64-4.3-sources.jar!/org/eclipse/swt/events/ShellAdapter.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="26" column="22" selection-start-line="26" selection-start-column="22" selection-end-line="26" selection-end-column="22" />
-              <folding>
-                <element signature="n#!!doc" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="strings.properties" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/swt-ui/src/main/resources/strings.properties">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="8" column="27" selection-start-line="8" selection-start-column="27" selection-end-line="8" selection-end-column="27" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="win.build.gradle" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/swt-ui/win.build.gradle">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="1" column="67" selection-start-line="1" selection-start-column="67" selection-end-line="1" selection-end-column="67" />
+            <state vertical-scroll-proportion="0.57522124">
+              <caret line="67" column="14" selection-start-line="67" selection-start-column="14" selection-end-line="67" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -137,7 +58,17 @@
         <entry file="file://$PROJECT_DIR$/swt-ui/linux.build.gradle">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="2" column="1" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
+              <caret line="1" column="66" selection-start-line="1" selection-start-column="4" selection-end-line="1" selection-end-column="66" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="win.build.gradle" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/swt-ui/win.build.gradle">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="1" column="68" selection-start-line="1" selection-start-column="4" selection-end-line="1" selection-end-column="68" />
               <folding />
             </state>
           </provider>
@@ -371,7 +302,15 @@
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="jnlpSignJars" />
+                <option name="name" value="installJnlp" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="installLinux" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="installWin" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Placeholder task for tasks relating to creating .exe applications with launch4j" />
@@ -641,6 +580,18 @@
                 <option name="name" value="installDist" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/swt-ui" />
+                <option name="name" value="installJnlp" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/swt-ui" />
+                <option name="name" value="installLinux" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/swt-ui" />
+                <option name="name" value="installWin" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
                 <option name="description" value="Assembles a jar archive containing the main classes." />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/swt-ui" />
                 <option name="name" value="jar" />
@@ -649,10 +600,6 @@
                 <option name="description" value="Generates Javadoc API documentation for the main source code." />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/swt-ui" />
                 <option name="name" value="javadoc" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/swt-ui" />
-                <option name="name" value="jnlpSignJars" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Placeholder task for tasks relating to creating .exe applications with launch4j" />
@@ -721,7 +668,7 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="$PROJECT_DIR$" value="8685969071836" />
+        <entry key="$PROJECT_DIR$" value="8685974814076" />
       </map>
     </option>
     <option name="projectBuildClasspath">
@@ -1497,7 +1444,7 @@
       <updated>1447521983342</updated>
       <workItem from="1447521991865" duration="27512000" />
       <workItem from="1447660305534" duration="5321000" />
-      <workItem from="1447665900072" duration="1633000" />
+      <workItem from="1447665900072" duration="6169000" />
     </task>
     <task id="LOCAL-00001" summary="Added menubar and status line">
       <created>1447662452798</created>
@@ -1511,11 +1458,17 @@
       <option name="project" value="LOCAL" />
       <updated>1447665373236</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Added menubar and status line">
+      <created>1447667537849</created>
+      <option name="number" value="00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1447667537849</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="34466000" />
+    <option name="totallyTimeSpent" value="39002000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="357" y="52" width="1400" height="1000" extended-state="0" />
@@ -1748,22 +1701,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/swt-ui/linux.build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="2" column="1" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/swt-ui/win.build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="1" column="67" selection-start-line="1" selection-start-column="67" selection-end-line="1" selection-end-column="67" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/swt-ui/src/main/resources/strings.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1832,10 +1769,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/swt-ui/win.build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="1" column="68" selection-start-line="1" selection-start-column="4" selection-end-line="1" selection-end-column="68" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/swt-ui/linux.build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="1" column="66" selection-start-line="1" selection-start-column="4" selection-end-line="1" selection-end-column="66" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/swt-ui/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6106195">
-          <caret line="23" column="36" selection-start-line="23" selection-start-column="36" selection-end-line="23" selection-end-column="36" />
+        <state vertical-scroll-proportion="0.57522124">
+          <caret line="67" column="14" selection-start-line="67" selection-start-column="14" selection-end-line="67" selection-end-column="14" />
           <folding />
         </state>
       </provider>
