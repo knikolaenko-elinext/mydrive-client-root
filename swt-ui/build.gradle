@@ -32,12 +32,16 @@ launch4j {
     outfile = 'mydrive.exe'
 }
 
-task signJars {
-    file('build/install/swt-ui/lib').listFiles().each {ant.signjar(
-            jar: it.absolutePath,
+task jnlpSignJars << {
+    mkdir('build/install/jnlp')
+    file('build/install/swt-ui/lib').listFiles().each {
+        ant.signjar(jar: it.absolutePath,
             alias: 'selfsigned',
             keystore: 'sign/keystore.jks',
             storepass: 'password',
-            keypass: 'password')}
+            keypass: 'password',
+            signedjar: 'build/install/jnlp/' + it.name);
+    }
 }
-installDist.dependsOn signJars
+jnlpSignJars.dependsOn installDist
+build.dependsOn jnlpSignJars
