@@ -12,6 +12,8 @@ import org.eclipse.swt.layout.FormData;
 import org.eclipse.swt.layout.FormLayout;
 import org.eclipse.swt.widgets.*;
 
+import java.util.Arrays;
+
 /**
  * Created by kirill on 14.11.2015.
  */
@@ -67,7 +69,7 @@ public class MainAppWindow {
         trayItem.addSelectionListener(new SelectionAdapter() {
             @Override
             public void widgetSelected(SelectionEvent e) {
-                restoreFromTray();
+                toggleMinimizedState();
             }
         });
 
@@ -87,6 +89,8 @@ public class MainAppWindow {
             }
         });
     }
+
+
 
     private void createMenubar() {
         Menu menuBar = new Menu(shell, SWT.BAR);
@@ -166,6 +170,16 @@ public class MainAppWindow {
 
         Button selectFilesBtn = new Button(dndGroup, SWT.PUSH);
         selectFilesBtn.setText(UiStrings.getResourceString("main.dnd.btn"));
+        selectFilesBtn.addSelectionListener(new SelectionAdapter() {
+            @Override
+            public void widgetSelected(SelectionEvent e) {
+                FileDialog fileDialog = new FileDialog(shell, SWT.MULTI);
+                fileDialog.setText(UiStrings.getResourceString("main.selectFilesDialog.title"));
+                fileDialog.open();
+                LOG.info(Arrays.asList(fileDialog.getFilterPath()));
+                LOG.info(Arrays.asList(fileDialog.getFileNames()));
+            }
+        });
         {
             FormData layoutData = new FormData();
             layoutData.left = new FormAttachment(25);
@@ -207,6 +221,14 @@ public class MainAppWindow {
         shell.setVisible(true);
         shell.setActive();
         shell.setMinimized(false);
+    }
+
+    private void toggleMinimizedState() {
+        if (shell.isVisible()){
+            minimizeToTray();
+        } else {
+            restoreFromTray();
+        }
     }
 
     public void close() {
