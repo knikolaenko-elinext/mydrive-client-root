@@ -9,13 +9,24 @@ buildscript {
     }
 }
 
+configurations {
+    win
+    linux
+}
+
 apply plugin: 'application'
 apply plugin: 'edu.sc.seis.launch4j'
 
 dependencies {
-    compile 'log4j:log4j:1.2.17'
-    compile 'org.eclipse.swt:org.eclipse.swt.win32.win32.x86_64:4.3'
     compile project(':core')
+    compile 'log4j:log4j:1.2.17'
+    if (System.getProperty("os.name").toLowerCase().contains("windows")) {
+        compile 'org.eclipse.swt:org.eclipse.swt.win32.win32.x86_64:4.3'
+    } else {
+        compile 'org.eclipse.swt:org.eclipse.swt.gtk.linux.x86_64:4.3'
+    }
+    win 'org.eclipse.swt:org.eclipse.swt.win32.win32.x86_64:4.3'
+    linux 'org.eclipse.swt:org.eclipse.swt.gtk.linux.x86_64:4.3'
 }
 
 mainClassName = "ch.mydrive.Main"
@@ -26,25 +37,42 @@ launch4j {
     outfile = 'mydrive.exe'
 }
 
-task signForJnlp << {
-    mkdir ('build/jnlp');
-    file('build/install/swt-ui/lib').listFiles().each {
-        ant.signjar(
-                jar: it.absolutePath,
-                alias: 'selfsigned',
-                keystore: 'sign/keystore.jks',
-                storepass: 'password',
-                keypass: 'password',
-                signedjar: 'build/jnlp/'+it.name);
+task installJnlp (dependsOn: installDist) {
+    doLast {
+        mkdir('build/install/swt-ui-jnlp')
+        file('build/install/swt-ui/lib').listFiles().each {
+            ant.signjar(jar: it.absolutePath,
+                    alias: 'selfsigned',
+                    keystore: 'sign/keystore.jks',
+                    storepass: 'password',
+                    keypass: 'password',
+                    signedjar: 'build/install/swt-ui-jnlp/' + it.name);
+        }
     }
 }
-signForJnlp.dependsOn installDist
+build.dependsOn installJnlp
 
-task moveJnlpDescriptor(type: Copy) {
-    from "dist-assets/mydrive.jnlp"
-    from "assets/app-logo.ico"
-    into 'build/jnlp'
+task installWin (dependsOn: installDist, type: Copy) {
+    into 'build/install/swt-ui-win'
+    into (""){
+        from "build/install/swt-ui"
+        exclude "**/org.eclipse.swt*"
+    }
+    into("lib") {
+        from configurations.win
+    }
 }
 
-task installJnlp(dependsOn:["signForJnlp", "moveJnlpDescriptor"])
+task installLinux (dependsOn: installDist, type: Copy) {
+    into 'build/install/swt-ui-linux'
+    into (""){
+        from "build/install/swt-ui"
+        exclude "**/org.eclipse.swt*"
+    }
+    into("lib") {
+        from configurations.linux
+    }
+}
 
+build.dependsOn installWin
+build.dependsOn installLinux

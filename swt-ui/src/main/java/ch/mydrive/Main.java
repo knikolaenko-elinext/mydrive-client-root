@@ -18,7 +18,6 @@ public class Main {
                 display.sleep();
             }
         }
-        application.close();
         display.dispose();
     }
 }
