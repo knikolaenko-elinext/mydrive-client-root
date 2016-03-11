@@ -25,6 +25,7 @@ public class MainAppWindow {
     private Shell shell;
     private Group dndGroup;
     private TrayItem trayItem;
+    private Label status;
 
     public Shell open(Display display) {
         this.display = display;
@@ -197,12 +198,18 @@ public class MainAppWindow {
             public void drop(DropTargetEvent event) {
                 LOG.info(">> Drop");
                 LOG.info(event.toString());
+                String[] files = (String[]) event.data;                
+                StringBuilder sb = new StringBuilder("Drop: ");
+                for (String file: files){
+                	sb.append(file).append(";");
+                }
+                status.setText(sb.toString());
             }
         });
     }
 
     private void createStatusBar() {
-        Label status = new Label(shell, SWT.BORDER);
+        status = new Label(shell, SWT.BORDER);
         {
             FormData layoutData = new FormData();
             layoutData.left = new FormAttachment(0);

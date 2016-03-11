@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<jnlp spec="7.0+" codebase="http://mydrive.net:8080/jnlp/" href="mydrive.jnlp">
+<jnlp spec="7.0+" codebase="http://localhost:8080/jnlp/" href="mydrive.jnlp">
     <information>
         <title>MyDrive</title>
         <vendor>MyDrive</vendor>
