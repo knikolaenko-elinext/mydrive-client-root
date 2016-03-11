@@ -1,0 +1,2 @@
+GRADLE_FILTERS=1.0-projectRelativePath-matches-false-false-core,1.0-projectRelativePath-matches-false-false-swt-ui,1.0-projectRelativePath-matches-false-false-build,1.0-projectRelativePath-matches-false-false-.gradle,1.0-projectRelativePath-matches-false-false-jnlp
+eclipse.preferences.version=1

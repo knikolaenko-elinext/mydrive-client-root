@@ -1,2 +1,3 @@
 include 'core'
 include 'swt-ui'
+include 'jnlp'

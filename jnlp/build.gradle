@@ -1,0 +1,6 @@
+apply plugin: 'war'
+apply plugin: 'jetty'
+
+httpPort = 8080
+stopPort = 9451
+stopKey = 'foo'
