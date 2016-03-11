@@ -5,8 +5,9 @@
         <vendor>MyDrive</vendor>
         <homepage href="docs/help.html"/>
         <icon href="app-logo.png"/>
+        <icon kind="shortcut" href="app-logo.ico"/>
         <offline-allowed/>
-        <shortcut online="false" install="false">
+        <shortcut online="false" install="true">
             <desktop/>
             <menu submenu="MyDrive"/>
         </shortcut>
