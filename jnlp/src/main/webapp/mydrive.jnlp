@@ -6,6 +6,7 @@
         <homepage href="docs/help.html"/>
         <icon href="app-logo.png"/>
         <icon kind="shortcut" href="app-logo.ico"/>
+        <icon kind="splash" href="mydrive_logo.png"/>
         <offline-allowed/>
         <shortcut online="false" install="true">
             <desktop/>

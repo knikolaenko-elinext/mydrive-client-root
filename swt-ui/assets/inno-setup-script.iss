@@ -6,6 +6,7 @@
 #define MyAppPublisher "Softronics, Inc."
 #define MyAppURL "http://www.mydrive.ch/"
 #define MyAppExeName "mydrive.exe"
+#define MyAppBasePath "../../"
 
 [Setup]
 ; NOTE: The value of AppId uniquely identifies this application.
@@ -22,9 +23,9 @@ AppUpdatesURL={#MyAppURL}
 DefaultDirName={pf}\{#MyAppName}
 DefaultGroupName={#MyAppName}
 AllowNoIcons=yes
-OutputDir=D:\sandbox\mydrive-client-root\swt-ui\build
+OutputDir={#MyAppBasePath}\swt-ui\build
 OutputBaseFilename=mydrive-setup
-SetupIconFile=D:\sandbox\mydrive-client-root\swt-ui\assets\app-logo.ico
+SetupIconFile={#MyAppBasePath}\swt-ui\assets\app-logo.ico
 Compression=lzma
 SolidCompression=yes
 
@@ -35,8 +36,8 @@ Name: "english"; MessagesFile: "compiler:Default.isl"
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 
 [Files]
-Source: "D:\sandbox\mydrive-client-root\swt-ui\build\launch4j\mydrive.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\sandbox\mydrive-client-root\swt-ui\build\launch4j\lib\*"; DestDir: "{app}\lib"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "{#MyAppBasePath}\swt-ui\build\launch4j\mydrive.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#MyAppBasePath}\swt-ui\build\launch4j\lib\*"; DestDir: "{app}\lib"; Flags: ignoreversion recursesubdirs createallsubdirs
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Icons]
