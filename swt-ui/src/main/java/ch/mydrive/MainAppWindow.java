@@ -1,8 +1,14 @@
 package ch.mydrive;
 
+import java.io.File;
+
 import org.apache.log4j.Logger;
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.dnd.*;
+import org.eclipse.swt.dnd.DND;
+import org.eclipse.swt.dnd.DropTarget;
+import org.eclipse.swt.dnd.DropTargetAdapter;
+import org.eclipse.swt.dnd.DropTargetEvent;
+import org.eclipse.swt.dnd.FileTransfer;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.events.ShellAdapter;
@@ -10,9 +16,18 @@ import org.eclipse.swt.events.ShellEvent;
 import org.eclipse.swt.layout.FormAttachment;
 import org.eclipse.swt.layout.FormData;
 import org.eclipse.swt.layout.FormLayout;
-import org.eclipse.swt.widgets.*;
-
-import java.util.Arrays;
+import org.eclipse.swt.widgets.Button;
+import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.Event;
+import org.eclipse.swt.widgets.FileDialog;
+import org.eclipse.swt.widgets.Group;
+import org.eclipse.swt.widgets.Label;
+import org.eclipse.swt.widgets.Listener;
+import org.eclipse.swt.widgets.Menu;
+import org.eclipse.swt.widgets.MenuItem;
+import org.eclipse.swt.widgets.Shell;
+import org.eclipse.swt.widgets.Tray;
+import org.eclipse.swt.widgets.TrayItem;
 
 /**
  * Created by kirill on 14.11.2015.
@@ -177,8 +192,13 @@ public class MainAppWindow {
                 FileDialog fileDialog = new FileDialog(shell, SWT.MULTI);
                 fileDialog.setText(UiStrings.getResourceString("main.selectFilesDialog.title"));
                 fileDialog.open();
-                LOG.info(Arrays.asList(fileDialog.getFilterPath()));
-                LOG.info(Arrays.asList(fileDialog.getFileNames()));
+                LOG.info(">> Select");               
+                String[] files = fileDialog.getFileNames();                
+                StringBuilder sb = new StringBuilder("Select: ");
+                for (String file: files){
+                	sb.append(fileDialog.getFilterPath()).append(File.separator).append(file).append(";");
+                }
+                status.setText(sb.toString());
             }
         });
         {
