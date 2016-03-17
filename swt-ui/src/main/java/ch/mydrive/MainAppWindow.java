@@ -49,15 +49,33 @@ public class MainAppWindow {
         shell.setText(UiStrings.getResourceString("main.title"));
         createShellContents();
         shell.setMinimumSize(450, 350);
-        shell.setSize(450, 350);
-        shell.pack();
-        shell.open();
+        shell.setMaximized(AppProps.INSTANCE.getBool("main.maximized", false));
+        if (!shell.getMaximized()){
+			shell.setSize(AppProps.INSTANCE.getInt("main.width", 450), AppProps.INSTANCE.getInt("main.height", 350));
+			shell.setLocation(AppProps.INSTANCE.getInt("main.x", 50), AppProps.INSTANCE.getInt("main.y", 50));
+	    }
+		shell.open();
         shell.addShellListener(new ShellAdapter() {
             @Override
             public void shellIconified(ShellEvent e) {
                 minimizeToTray();
             }
         });
+        // Save new size	 
+		shell.addListener(SWT.Resize, new Listener() {
+			public void handleEvent(Event e) {
+				AppProps.INSTANCE.setInt("main.width", shell.getSize().x);
+				AppProps.INSTANCE.setInt("main.height", shell.getSize().y);
+				AppProps.INSTANCE.setBool("main.maximized", shell.getMaximized());
+			}
+		});
+		// Save new position
+		shell.addListener(SWT.Move, new Listener() {
+			public void handleEvent(Event e) {
+				AppProps.INSTANCE.setInt("main.x", shell.getLocation().x);
+				AppProps.INSTANCE.setInt("main.y", shell.getLocation().y);
+			}
+		});
         LOG.trace("MainAppWindow Shell Opened");
         return shell;
     }
