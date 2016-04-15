@@ -19,6 +19,6 @@ dependencies {
 }
 
 tomcat {
-    httpPort = 8080
+    httpPort = 8082
     contextPath = 'jnlp'
 }
