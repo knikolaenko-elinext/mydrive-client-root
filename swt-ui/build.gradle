@@ -37,22 +37,7 @@ launch4j {
     outfile = 'mydrive.exe'
 }
 
-task installJnlp (dependsOn: installDist) << {
-	mkdir ('build/install/swt-ui-jnlp');
 
-    file('build/install/swt-ui/lib').listFiles().each {
-        ant.signjar(jar: it.absolutePath,
-                alias: 'selfsigned',
-                keystore: 'sign/keystore.jks',
-                storepass: 'password',
-                keypass: 'password',
-                signedjar: 'build/install/swt-ui-jnlp/' + it.name);
-    }    
-}
-task installJnlpWeb (dependsOn: installJnlp, type: Copy) {
-    into '../jnlp/src/main/webapp/lib'
-    from 'build/install/swt-ui-jnlp'
-}
 
 task installWin (dependsOn: installDist, type: Copy) {
     into 'build/install/swt-ui-win'
@@ -76,7 +61,35 @@ task installLinux (dependsOn: installDist, type: Copy) {
     }
 }
 
-build.dependsOn installJnlp
-build.dependsOn installJnlpWeb
+task installJnlp (dependsOn: [installWin, installLinux]) << {
+	mkdir ('build/install/swt-ui-jnlp');
+	mkdir ('build/install/swt-ui-jnlp/win_x64');
+	mkdir ('build/install/swt-ui-jnlp/linux_x64');
+
+    file('build/install/swt-ui-win/lib/').listFiles().each {
+        ant.signjar(jar: it.absolutePath,
+                alias: 'selfsigned',
+                keystore: 'sign/keystore.jks',
+                storepass: 'password',
+                keypass: 'password',
+                signedjar: 'build/install/swt-ui-jnlp/win_x64/' + it.name);
+    }  
+    
+    file('build/install/swt-ui-linux/lib').listFiles().each {
+        ant.signjar(jar: it.absolutePath,
+                alias: 'selfsigned',
+                keystore: 'sign/keystore.jks',
+                storepass: 'password',
+                keypass: 'password',
+                signedjar: 'build/install/swt-ui-jnlp/linux_x64/' + it.name);
+    }    
+}
+task installJnlpWeb (dependsOn: installJnlp, type: Copy) {
+    into '../jnlp/src/main/webapp/lib'
+    from 'build/install/swt-ui-jnlp'
+}
+
 build.dependsOn installWin
 build.dependsOn installLinux
+build.dependsOn installJnlp
+build.dependsOn installJnlpWeb
